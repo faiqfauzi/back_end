@@ -37,11 +37,10 @@ exports.getAll = async (req, res) => {
 exports.findOne = async (req, res) => {
     const id = req.params.id
     try {
-        const soal = await Soal.findByPk(id, { 
+        const soal = await Category.findByPk(id, { 
             rejectOnEmpty: true,
             include: [{
-                model: Soal,
-                as: 'soals'
+                model: Soal
             }], 
         })
         res.json({
